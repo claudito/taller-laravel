@@ -1,0 +1,22 @@
+
+
+Proyecto: Crud
+
+1.Ruta
+2.Vista(template)
+3.Controlador(enlazaria con la vista)
+
+
+Ruta 
+    Controlador
+               template(vista)
+
+
+
+ id
+ codigo
+ nombre
+ descripcion
+ fecha_registro
+ unidad
+ 

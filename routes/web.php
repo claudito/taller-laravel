@@ -13,42 +13,36 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
 
-
-
-Route::get('perfil',function(){
-
- //return '/var/www/taller-laravel/public';
-	//return 'login';
-
-	//return 'Contacto';
-
-   
-   $name  = "LUIS AUGUSTO CLAUDIO PONCE";
-
-
-    return view('perfil',compact('name'));
-
+    // return 'hola';
 
 });
 
 
-Route::get('api/users',function(){
+//Route::middleware('auth:api')->
+/*
+Route::get('productos',function(){
+
+ 
+ return view('crud.index');
+ 
+
+});*/
+
+//Agregar    => POST
+//Actualizar => PUT
+//Eliminar   => DELETE
+
+#Productos
+Route::get('productos','ProductoController@index');
+Route::get('productos_all','ProductoController@all')->name('productos.all');
+Route::get('productos_consulta','ProductoController@consulta')->name('productos.consulta');
+Route::post('productos_agregar','ProductoController@agregar')->name('productos.agregar');
+Route::put('productos_actualizar','ProductoController@actualizar')->name('productos.actualizar');
+Route::delete('productos_eliminar','ProductoController@eliminar')->name('productos.eliminar');
 
 
- return  array(
-
-   
-  array('id'=>1,'name'=>'Luis Claudio'),
-  array('id'=>2,'name'=>'Juan Perez')
-
-
-
- );
-
-
-});
+//Autenticación Laravel
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
