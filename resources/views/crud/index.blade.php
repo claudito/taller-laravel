@@ -38,6 +38,7 @@
 <div class="col-md-12">
 	
 
+
 <div class="card">
 	
 <div class="card-header">
@@ -77,7 +78,11 @@ Productos
 
 </div>
 
-
+<div class="form-group">
+<select name="lista"  class="lista form-control">
+<option value="">Seleccionar</option>
+</select>
+</div>
 
 </div>
 
@@ -416,6 +421,41 @@ $(document).on('submit','#registro',function(e){
 
 
 e.preventDefault();
+});
+
+
+$(document).ready(function(){
+
+
+$.ajax({
+
+url:'{{ route('productos.all') }}',
+type:'GET',
+dataType:'JSON',
+success:function(result){
+
+lista = '<option value="">[Seleccionar]</option>';
+
+result['data'].forEach(function(row){
+
+
+lista += '<option value="'+row.codigo+'">'+row.codigo+' - '+row.descripcion+'</option>';
+
+
+});
+
+$('.lista').html(lista);
+
+
+}
+
+
+
+});
+
+
+
+
 });
 
 
